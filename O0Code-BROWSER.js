@@ -42,6 +42,9 @@ function converto(co) {
 //main conversion code
 function convert0oCode(c) {
 var b=converto(c),h="",l=[];
+    if (c.includes("1")) {
+        throw new Error("could not read");
+    };
 for (let i = 0;i<b.length+18;i++) {
     if (b.at(i)=="1"|b.at(i)=="0") {
     h=h+b.at(i);
@@ -61,14 +64,14 @@ for (let i = 0;i<l.length;i++) {
         j = j+l.at(i);
     };
 };
-console.log((t.join("")).replace("\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00",""));
+console.log(((t.join("")).replace("\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00","")));
 };
 function convertascto0o(a) {
     var n=(asc2dec(a)).split(" "),v=[];
     for (let i = 0;i<n.length;i++) {
         v.push(convertToBinary(n[i]));
     };
-    v=(((v.join(" ")).replaceAll("o","j")).replaceAll("0","o")).replaceAll("j","0");
+    v=((((v.join(" ")).replaceAll("o","j")).replaceAll("0","o")).replaceAll("j","0")).replaceAll("1","0");
     return v;
 };
 /*
