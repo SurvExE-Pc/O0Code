@@ -1,6 +1,9 @@
 # O0Code
 O0Code for april fools XD - Released in JavaScript on 3/29/2022 early
 
+
+
+##FIXED THE GLITCH
 & I know this is called O0Code but it can read O1Code to lol,
 I will fix the glitch where the converter makes it go to O1Code
 And not O0Code sometime in april i think
