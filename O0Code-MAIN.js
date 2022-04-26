@@ -42,6 +42,9 @@ function converto(co) {
 //main conversion code
 function convert0oCode(c) {
 var b=converto(c),h="",l=[];
+    if (c.includes("1")) {
+        throw new Error("could not read");
+    };
 for (let i = 0;i<b.length+18;i++) {
     if (b.at(i)=="1"|b.at(i)=="0") {
     h=h+b.at(i);
@@ -51,6 +54,7 @@ for (let i = 0;i<b.length+18;i++) {
     };
 };
     l=l.join(" ");
+console.log(l)
 var t=[],j="";
 for (let i = 0;i<l.length;i++) {
     if (l.at(i)==" ") {
@@ -60,16 +64,18 @@ for (let i = 0;i<l.length;i++) {
         j = j+l.at(i);
     };
 };
-return (t.join("")).replace("\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00","");
+return ((t.join("")).replace("\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00",""));
 };
 function convertascto0o(a) {
     var n=(asc2dec(a)).split(" "),v=[];
     for (let i = 0;i<n.length;i++) {
         v.push(convertToBinary(n[i]));
     };
-    v=(((v.join(" ")).replaceAll("o","j")).replaceAll("0","o")).replaceAll("j","0");
+    v=((((v.join(" ")).replaceAll("o","j")).replaceAll("0","o")).replaceAll("j","0")).replaceAll("1","0");
     return v;
 };
 /*
-How to use - You write your code into the code variable at the top and then it will convert it when you run convert0oCode(code); and if you want you can use the built in function of auto generating the O0Code for you by using convertascto0o(); function - like this convertascto0o("Hi, This is being converted into OCode");
+How to use - You write your code into the code variable at the top and then it will convert it when you run convert0oCode(code);
+and if you want you can use the built in function of auto generating the O0Code for you by using convertascto0o(); function 
+- like this convertascto0o("Hi, This is being converted into OCode");
 */
